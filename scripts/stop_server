@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+CONTAINER_NAME="final-proj-container"
+
+if [ "$(docker ps -aq -f name=${CONTAINER_NAME})" ]; then
+  docker rm -f ${CONTAINER_NAME} || true
+fi
