@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+IMAGE="${IMAGE_NAME:-eveby/final-python:latest}"
+CONTAINER_NAME="final-proj-container"
+
+docker pull "${IMAGE}"
+
+docker run -d \
+  --name ${CONTAINER_NAME} \
+  --restart unless-stopped \
+  -p 5000:5000 \
+  "${IMAGE}"
